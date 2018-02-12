@@ -4,7 +4,7 @@ import numpy
 
 
 def _one_align_char(arr, char):
-    return numpy.all(1 == numpy.array([item.count(char) for item in arr]))
+    return numpy.all(numpy.array([item.count(char) for item in arr]) == 1)
 
 
 def tablify(string, align_char='.'):
