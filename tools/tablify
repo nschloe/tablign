@@ -4,17 +4,15 @@
 import argparse
 import sys
 
-import numpy
-
 import tablify
 
 
 def _main():
     args = _parse_options()
-    data = numpy.loadtxt(args.infile, dtype=str)
+    data = args.infile.read()
+
     data = tablify.tablify(data)
-    for i in range(data.shape[0]):
-        print(' '.join(data[i]))
+    print(data)
     return
 
 

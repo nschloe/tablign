@@ -7,7 +7,9 @@ def _one_align_char(arr, char):
     return numpy.all(1 == numpy.array([item.count(char) for item in arr]))
 
 
-def tablify(data, align_char='.'):
+def tablify(string, align_char='.'):
+    data = numpy.loadtxt(string.splitlines(), dtype=str)
+
     for j in range(data.shape[1]):
         if _one_align_char(data[:, j], align_char):
             num_char_before_dot = 0
@@ -29,4 +31,5 @@ def tablify(data, align_char='.'):
             # append spaces to make all entries equally long
             for i in range(len(data[:, j])):
                 data[i, j] += ' ' * (max_length - len(data[i, j]))
-    return data
+
+    return '\n'.join([' '.join(data[i]) for i in range(data.shape[0])])
