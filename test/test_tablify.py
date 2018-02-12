@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 #
+import pytest
+
 import tablify
 
 
@@ -15,5 +17,19 @@ CCCC 55.534 1131.1'''
     return
 
 
+@pytest.mark.parametrize('sep_char', [
+    ','
+    ])
+def test_column_seps(sep_char):
+    data = '''
+    A  {} 1.34    {} -214.1
+    CCCC {}        55.534 {} 1131.1'''.format(*(4 * sep_char))
+    ref = '''A    {}  1.34  {} -214.1
+CCCC {} 55.534 {} 1131.1'''.format(*(4 * sep_char))
+
+    assert tablify.tablify(data) == ref
+    return
+
+
 if __name__ == '__main__':
-    test_tablify()
+    test_column_seps(',')
