@@ -25,7 +25,7 @@ def _guess_delimiter(string):
     candidates = numpy.where(
         numpy.logical_and(is_constant_per_col, counts[0, :] > 0)
         )[0]
-    if len(candidates) > 0:
+    if candidates:
         return possible_delimiters[candidates[0]]
     return None
 
