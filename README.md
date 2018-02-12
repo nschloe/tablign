@@ -30,6 +30,8 @@ Simply mark the table, and type
 ```
 Works nicely with LaTeX, Markdown tables etc.
 
+![](https://nschloe.github.io/tablify/tty-capture.gif)
+
 ### Installation
 
 tablify is [available from the Python Package Index](https://pypi.python.org/pypi/tablify/), so with
