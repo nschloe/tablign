@@ -1,11 +1,33 @@
 # tablify
 
+Pretty-prints your tables.
+
 [![CircleCI](https://img.shields.io/circleci/project/github/nschloe/tablify/master.svg)](https://circleci.com/gh/nschloe/tablify/tree/master)
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/tablify.svg)](https://codecov.io/gh/nschloe/tablify)
 [![Codacy grade](https://img.shields.io/codacy/grade/b23fbc2af9884315bd7d6275aa2629b6.svg)](https://app.codacy.com/app/nschloe/tablify/dashboard)
 [![awesome](https://img.shields.io/badge/awesome-yes-brightgreen.svg)](https://github.com/nschloe/tablify)
 [![PyPi Version](https://img.shields.io/pypi/v/tablify.svg)](https://pypi.python.org/pypi/tablify)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/tablify.svg?style=social&label=Stars)](https://github.com/nschloe/tablify)
+
+tablify converts your input file
+```
+A  1.34  -214.1
+CCCC 55.534 1131.1
+```
+into
+```
+A     1.34  -214.1
+CCCC 55.534 1131.1
+```
+Column widths are unified across the table, decimal dots are aligned.
+
+### Usage from vim
+
+Mark the table, and type
+```
+:'<,'>:!tools/tablify
+```
+
 
 ### Installation
 
