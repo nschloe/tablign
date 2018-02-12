@@ -25,7 +25,8 @@ def _guess_delimiter(string):
     candidates = numpy.where(
         numpy.logical_and(is_constant_per_col, counts[0, :] > 0)
         )[0]
-    if candidates:
+
+    if len(candidates) > 0:
         return possible_delimiters[candidates[0]]
     return None
 
@@ -33,6 +34,7 @@ def _guess_delimiter(string):
 def tablify(string, align_char='.', delimiter=None):
     if delimiter is None:
         delimiter = _guess_delimiter(string)
+
     data = numpy.loadtxt(string.splitlines(), dtype=str, delimiter=delimiter)
 
     # remove leading and trailing whitespace from entries
