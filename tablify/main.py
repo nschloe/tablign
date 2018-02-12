@@ -64,4 +64,4 @@ def tablify(string, align_char='.', delimiter=None):
 
     sep = ' {} '.format(delimiter) if delimiter else ' '
 
-    return '\n'.join([sep.join(data[i]) for i in range(data.shape[0])])
+    return '\n'.join([sep.join(data[i]).strip() for i in range(data.shape[0])])

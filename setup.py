@@ -48,6 +48,7 @@ setup(
         'Topic :: Text Processing',
         'Topic :: Text Processing :: Filters',
         'Topic :: Text Processing :: Markup',
+        'Topic :: Text Processing :: Markup :: LaTeX',
         'Topic :: Utilities',
         ]
     )

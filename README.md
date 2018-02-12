@@ -19,15 +19,16 @@ into
 A     1.34  -214.1
 CCCC 55.534 1131.1
 ```
-Column widths are unified across the table, decimal dots are aligned.
+Column widths are unified across the table, decimal dots are aligned, and
+tablify tries to be smart about column separators.
 
 ### Usage from vim
 
-Mark the table, and type
+Simply mark the table, and type
 ```
-:'<,'>:!tools/tablify
+:'<,'>:!tablify
 ```
-
+Works nicely with LaTeX, Markdown tables etc.
 
 ### Installation
 
