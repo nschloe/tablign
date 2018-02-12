@@ -1,1 +1,37 @@
 # tablify
+
+[![CircleCI](https://img.shields.io/circleci/project/github/nschloe/tablify/master.svg)](https://circleci.com/gh/nschloe/tablify/tree/master)
+[![codecov](https://img.shields.io/codecov/c/github/nschloe/tablify.svg)](https://codecov.io/gh/nschloe/tablify)
+[![Codacy grade](https://img.shields.io/codacy/grade/b23fbc2af9884315bd7d6275aa2629b6.svg)](https://app.codacy.com/app/nschloe/tablify/dashboard)
+[![awesome](https://img.shields.io/badge/awesome-yes-brightgreen.svg)](https://github.com/nschloe/tablify)
+[![PyPi Version](https://img.shields.io/pypi/v/tablify.svg)](https://pypi.python.org/pypi/tablify)
+[![GitHub stars](https://img.shields.io/github/stars/nschloe/tablify.svg?style=social&label=Stars)](https://github.com/nschloe/tablify)
+
+### Installation
+
+tablify is [available from the Python Package Index](https://pypi.python.org/pypi/tablify/), so with
+```
+pip install -U tablify
+```
+you can install/upgrade.
+
+### Testing
+
+To run the tests, simply check out this repository and run
+```
+pytest
+```
+
+### Distribution
+
+To create a new release
+
+1. bump the `__version__` number,
+
+2. publish to PyPi and GitHub:
+    ```
+    $ make publish
+    ```
+
+### License
+tablify is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
