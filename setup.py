@@ -30,7 +30,7 @@ setup(
     url='https://github.com/nschloe/tablify',
     download_url='https://pypi.python.org/pypi/tablify',
     author=about['__author__'],
-    author_email=about['__email__'],
+    author_email=about['__author_email__'],
     install_requires=[
         'numpy',
         ],
