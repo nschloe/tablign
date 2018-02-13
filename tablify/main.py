@@ -28,23 +28,15 @@ def _guess_delimiter(string):
     # remove empty lines
     lines = [line for line in string.splitlines() if line.strip()]
 
-    # possible delimeter in order of precedence
-    possible_delimiters = '|&;'
+    for delimiter in '|&;,':
+        counts = [0 for _ in range(len(lines))]
+        for k, line in enumerate(lines):
+            counts[k] = line.count(delimiter)
 
-    counts = [
-        [0 for _ in range(len(lines))]
-        for _ in range(len(possible_delimiters))
-        ]
-    for k, line in enumerate(lines):
-        for i, delimiter in enumerate(possible_delimiters):
-            counts[i][k] = line.count(delimiter)
+        # Check if there is any delimiter appears more than once per line.
+        if all([item > 1 for item in counts]):
+            return delimiter
 
-    # Check if there is any delimiter appears more than once per line.
-    is_candidate = [all([item > 1 for item in row]) for row in counts]
-    candidates = [i for i, x in enumerate(is_candidate) if x]
-
-    if len(candidates) > 0:
-        return possible_delimiters[candidates[0]]
     return None
 
 
