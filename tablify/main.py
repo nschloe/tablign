@@ -2,8 +2,8 @@
 #
 
 
-def _one_align_char(arr, j, char):
-    for _, row in enumerate(arr):
+def _one_align_char(data, j, char):
+    for row in data:
         try:
             count = row[j].count(char)
         except IndexError:
@@ -15,7 +15,7 @@ def _one_align_char(arr, j, char):
 
 def _max_col_length(data, j):
     max_col_length = 0
-    for _, row in enumerate(data):
+    for row in data:
         try:
             max_col_length = max(max_col_length, len(row[j]))
         except IndexError:
@@ -28,9 +28,8 @@ def _guess_delimiter(lines):
     lines = [line for line in lines if line.strip()]
 
     for delimiter in '|&;,':
-        counts = [line.count(delimiter) for _, line in enumerate(lines)]
         # Check if the delimiter appears more than once in every line.
-        if all([item > 1 for item in counts]):
+        if all([line.count(delimiter) > 1 for line in lines]):
             return delimiter
 
     return None
@@ -39,7 +38,7 @@ def _guess_delimiter(lines):
 def _align(data, j, align_char):
     before_sizes = []
     after_sizes = []
-    for _, row in enumerate(data):
+    for row in data:
         try:
             item = row[j]
         except IndexError:
@@ -79,7 +78,7 @@ def tablify(string, align_char='.', delimiter=None):
         for j, item in enumerate(row):
             data[i][j] = item.strip()
 
-    max_num_cols = max([len(data[i]) for i in range(len(data))])
+    max_num_cols = max([len(row) for row in data])
 
     for j in range(max_num_cols):
         if _one_align_char(data, j, align_char):
@@ -98,4 +97,4 @@ def tablify(string, align_char='.', delimiter=None):
     # Only strip trailing whitespace if the delimiter is None.
     strp = str.rstrip if delimiter is None else str.strip
 
-    return '\n'.join([strp(sep.join(row)) for _, row in enumerate(data)])
+    return '\n'.join([strp(sep.join(row)) for row in data])
