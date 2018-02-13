@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 __author__ = u'Nico Schlömer'
 __author_email__ = 'nico.schloemer@gmail.com'
 __copyright__ = \
