@@ -37,28 +37,31 @@ def _guess_delimiter(lines):
 
 
 def _align(data, j, align_char):
-    num_char_before_dot = 0
-    num_char_after_dot = 0
-    for i, row in enumerate(data):
+    before_sizes = []
+    after_sizes = []
+    for _, row in enumerate(data):
         try:
-            item = data[i][j]
+            item = row[j]
         except IndexError:
-            continue
-        before, after = item.split(align_char)
-        num_char_before_dot = max(num_char_before_dot, len(before))
-        num_char_after_dot = max(num_char_after_dot, len(after))
+            before_sizes.append(0)
+            after_sizes.append(0)
+        else:
+            before, after = item.split(align_char)
+            before_sizes.append(len(before))
+            after_sizes.append(len(after))
+
+    num_char_before_dot = max(before_sizes)
+    num_char_after_dot = max(after_sizes)
 
     for i, row in enumerate(data):
         try:
-            item = data[i][j]
+            item = row[j]
         except IndexError:
             continue
-
-        before, after = item.split(align_char)
         data[i][j] = (
-            ' ' * (num_char_before_dot - len(before)) +
+            ' ' * (num_char_before_dot - before_sizes[i]) +
             item +
-            ' ' * (num_char_after_dot - len(after))
+            ' ' * (num_char_after_dot - after_sizes[i])
             )
     return data
 
