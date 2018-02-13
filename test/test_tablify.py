@@ -29,14 +29,14 @@ CCCC {} 55.534 {} 1131.1'''.format(*(4 * sep_char))
 
 def test_empty_cell():
     data = '''| A   |  B |\n||C|'''
-    ref = ''' | A | B |\n |   | C |'''
+    ref = '''| A | B |\n|   | C |'''
     assert tablify.tablify(data) == ref
     return
 
 
 def test_different_column_lengths():
     data = '''| A   |  B |\n|C|'''
-    ref = ''' | A | B |\n | C |'''
+    ref = '''| A | B |\n| C |'''
     assert tablify.tablify(data) == ref
     return
 

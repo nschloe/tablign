@@ -92,4 +92,7 @@ def tablify(string, align_char='.', delimiter=None):
 
     sep = ' {} '.format(delimiter) if delimiter else ' '
 
-    return '\n'.join([sep.join(row).rstrip() for _, row in enumerate(data)])
+    # Only strip trailing whitespace if the delimiter is None.
+    strp = str.rstrip if delimiter is None else str.strip
+
+    return '\n'.join([strp(sep.join(row)) for _, row in enumerate(data)])
