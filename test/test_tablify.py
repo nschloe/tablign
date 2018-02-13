@@ -35,12 +35,12 @@ def test_empty_cell():
     return
 
 
-# def test_different_column_lengths():
-#     data = '''| A   |  B |\n|C|'''
-#     ref = '''| A | B | \n | C |'''
-#
-#     assert tablify.tablify(data) == ref
-#     return
+def test_different_column_lengths():
+    data = '''| A   |  B |\n|C|'''
+    ref = ''' | A | B |\n | C |'''
+
+    assert tablify.tablify(data) == ref
+    return
 
 
 if __name__ == '__main__':

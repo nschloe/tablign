@@ -31,9 +31,7 @@ setup(
     download_url='https://pypi.python.org/pypi/tablify',
     author=about['__author__'],
     author_email=about['__author_email__'],
-    install_requires=[
-        'numpy',
-        ],
+    install_requires=[],
     description='tools for color models',
     long_description=read('README.rst'),
     license=about['__license__'],

@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-import numpy
 
 
 def _one_align_char(arr, j, char):
-    # return numpy.all(numpy.array([item.count(char) for item in arr]) == 1)
     for i, row in enumerate(arr):
         try:
             count = row[j].count(char)
@@ -31,19 +29,19 @@ def _guess_delimiter(string):
     lines = [line for line in string.splitlines() if line.strip()]
 
     # possible delimeter in order of precedence
-    possible_delimiters = '|&;,-'
+    possible_delimiters = '|&;'
 
-    counts = numpy.zeros((len(lines), len(possible_delimiters)), dtype=int)
+    counts = [
+        [0 for _ in range(len(lines))]
+        for _ in range(len(possible_delimiters))
+        ]
     for k, line in enumerate(lines):
         for i, delimiter in enumerate(possible_delimiters):
-            counts[k, i] = line.count(delimiter)
+            counts[i][k] = line.count(delimiter)
 
-    # Check if there is any delimiter that appears a constant nonzero number of
-    # times per row.
-    is_constant_per_col = numpy.all(counts == counts[0, :], axis=0)
-    candidates = numpy.where(
-        numpy.logical_and(is_constant_per_col, counts[0, :] > 0)
-        )[0]
+    # Check if there is any delimiter appears more than once per line.
+    is_candidate = [all([item > 1 for item in row]) for row in counts]
+    candidates = [i for i, x in enumerate(is_candidate) if x]
 
     if len(candidates) > 0:
         return possible_delimiters[candidates[0]]
