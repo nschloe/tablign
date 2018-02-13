@@ -3,7 +3,7 @@
 
 
 def _one_align_char(arr, j, char):
-    for i, row in enumerate(arr):
+    for _, row in enumerate(arr):
         try:
             count = row[j].count(char)
         except IndexError:
@@ -16,7 +16,7 @@ def _one_align_char(arr, j, char):
 
 def _max_col_length(data, j):
     max_col_length = 0
-    for i, row in enumerate(data):
+    for _, row in enumerate(data):
         try:
             max_col_length = max(max_col_length, len(row[j]))
         except IndexError:
