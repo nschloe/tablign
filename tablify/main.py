@@ -88,7 +88,7 @@ def tablify(string, align_char='.', delimiter=None):
             # append spaces to make all entries equally long
             for i, row in enumerate(data):
                 try:
-                    data[i][j] = data[i][j].ljust(max_length)
+                    data[i][j] = row[j].ljust(max_length)
                 except IndexError:
                     continue
 
