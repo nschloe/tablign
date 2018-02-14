@@ -2,25 +2,12 @@
 #
 
 
-def _one_align_char(data, j, char):
-    for row in data:
-        try:
-            count = row[j].count(char)
-        except IndexError:
-            continue
-        if count != 1:
-            return False
-    return True
+def _one_align_char(a, char):
+    return all([item.count(char) == 1 for item in a])
 
 
-def _max_col_length(data, j):
-    max_col_length = 0
-    for row in data:
-        try:
-            max_col_length = max(max_col_length, len(row[j]))
-        except IndexError:
-            continue
-    return max_col_length
+def _max_col_length(a):
+    return max([len(item) for item in a])
 
 
 def _guess_delimiter(lines):
@@ -35,34 +22,23 @@ def _guess_delimiter(lines):
     return None
 
 
-def _align(data, j, align_char):
+def _align(data, align_char):
     before_sizes = []
     after_sizes = []
-    for row in data:
-        try:
-            item = row[j]
-        except IndexError:
-            before_sizes.append(0)
-            after_sizes.append(0)
-        else:
-            before, after = item.split(align_char)
-            before_sizes.append(len(before))
-            after_sizes.append(len(after))
+    for item in data:
+        before, after = item.split(align_char)
+        before_sizes.append(len(before))
+        after_sizes.append(len(after))
 
     num_char_before_dot = max(before_sizes)
     num_char_after_dot = max(after_sizes)
 
-    for i, row in enumerate(data):
-        try:
-            item = row[j]
-        except IndexError:
-            continue
-        data[i][j] = (
-            ' ' * (num_char_before_dot - before_sizes[i]) +
-            item +
-            ' ' * (num_char_after_dot - after_sizes[i])
-            )
-    return data
+    return [(
+        ' ' * (num_char_before_dot - before_sizes[i]) +
+        item +
+        ' ' * (num_char_after_dot - after_sizes[i])
+        ) for i, item in enumerate(data)
+        ]
 
 
 def tablify(string, align_char='.', delimiter=None):
@@ -79,17 +55,23 @@ def tablify(string, align_char='.', delimiter=None):
 
     max_num_cols = max([len(row) for row in data])
 
-    for j in range(max_num_cols):
-        if _one_align_char(data, j, align_char):
-            data = _align(data, j, align_char)
+    # extend short rows with ''
+    for i, row in enumerate(data):
+        data[i].extend([''] * (max_num_cols - len(row)))
+
+    # transpose <https://stackoverflow.com/a/6473724/353337>
+    cols = list(map(list, zip(*data)))
+
+    for j, col in enumerate(cols):
+        if _one_align_char(col, align_char):
+            cols[j] = _align(col, align_char)
         else:
-            max_length = _max_col_length(data, j)
             # append spaces to make all entries equally long
-            for i, row in enumerate(data):
-                try:
-                    data[i][j] = row[j].ljust(max_length)
-                except IndexError:
-                    continue
+            max_length = _max_col_length(col)
+            cols[j] = [item.ljust(max_length) for item in col]
+
+    # transpose back
+    data = list(map(list, zip(*cols)))
 
     sep = ' {} '.format(delimiter) if delimiter else ' '
 
