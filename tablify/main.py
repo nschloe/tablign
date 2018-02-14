@@ -71,12 +71,11 @@ def tablify(string, align_char='.', delimiter=None):
     if delimiter is None:
         delimiter = _guess_delimiter(lines)
 
-    data = [line.split(delimiter) for line in lines]
-
-    # remove leading and trailing whitespace from entries
-    for i, row in enumerate(data):
-        for j, item in enumerate(row):
-            data[i][j] = item.strip()
+    # split and strip
+    data = [
+        [item.strip() for item in line.split(delimiter)]
+        for line in lines
+        ]
 
     max_num_cols = max([len(row) for row in data])
 
