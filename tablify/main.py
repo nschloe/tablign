@@ -37,8 +37,7 @@ def _align(data, align_char):
         ' ' * (num_char_before_dot - before_sizes[i]) +
         item +
         ' ' * (num_char_after_dot - after_sizes[i])
-        ) for i, item in enumerate(data)
-        ]
+        ) for i, item in enumerate(data)]
 
 
 def tablify(string, align_char='.', delimiter=None):
