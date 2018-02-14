@@ -11,16 +11,17 @@ Pretty-prints your tables.
 
 tablify converts your input file
 ```
-A  1.34  -214.1
-CCCC 55.534 1131.1
+| A | 1.34|-214.1
+|CCCC | 55.534|   1131.1|
 ```
 into
 ```
-A     1.34  -214.1
-CCCC 55.534 1131.1
+| A    |  1.34  | -214.1 |
+| CCCC | 55.534 | 1131.1 |
 ```
 Column widths are unified across the table, decimal dots are aligned, and
-tablify tries to be smart about column separators.
+tablify tries to be smart about column separators. Works for CSV, LaTeX,
+Markdown etc.
 
 ### Usage from vim
 
@@ -28,7 +29,6 @@ Simply mark the table, and type
 ```
 :'<,'>:!tablify
 ```
-Works nicely with LaTeX, Markdown tables etc.
 
 ![](https://nschloe.github.io/tablify/tty-capture.gif)
 
