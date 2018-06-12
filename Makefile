@@ -25,4 +25,9 @@ tag:
 publish: tag upload
 
 clean:
-	rm -f README.rst
+	@find . | grep -E "(__pycache__|\.pyc|\.pyo$\)" | xargs rm -rf
+	@rm -rf *.egg-info/ build/ dist/ MANIFEST
+
+lint:
+	black --check setup.py tablify/ test/*.py
+	flake8 setup.py tablify/ test/*.py
