@@ -1,24 +1,19 @@
 version: 2
 
 jobs:
-
-  # python3:
   build:
-    working_directory: ~/tablify
+    working_directory: ~/work
     docker:
-      - image: ubuntu:17.10
+      - image: ubuntu:18.04
     steps:
       - run: apt-get update
-      - run: apt-get install -y git python3-pip pandoc
-      - run: pip3 install -U pytest pytest-cov pylint bandit
+      - run: apt-get install -y git python3-pip
+      - run: pip3 install -U pytest pytest-cov flake8 black
       - checkout
       - run: pip3 install .
-      # lint, bandit
-      - run: pylint setup.py tablify/ test/*.py
-      - run: bandit -r .
-      # make sure that rst converts correctly
-      - run: pip3 install docutils pygments
-      - run: make README.rst
+      # format and lint
+      - run: LC_ALL=C.UTF-8 black setup.py tablify/ test/*.py
+      - run: flake8 setup.py tablify/ test/*.py
       # The tests
       - run: cd test/ && MPLBACKEND=Agg pytest --cov tablify
       # submit to codecov

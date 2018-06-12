@@ -14,7 +14,7 @@ def _guess_delimiter(lines):
     # remove empty lines
     lines = [line for line in lines if line.strip()]
 
-    for delimiter in '|&;,':
+    for delimiter in "|&;,":
         # Check if the delimiter appears more than once in every line.
         if all([line.count(delimiter) > 1 for line in lines]):
             return delimiter
@@ -33,30 +33,30 @@ def _align(data, align_char):
     num_char_before_dot = max(before_sizes)
     num_char_after_dot = max(after_sizes)
 
-    return [(
-        ' ' * (num_char_before_dot - before_sizes[i]) +
-        item +
-        ' ' * (num_char_after_dot - after_sizes[i])
-        ) for i, item in enumerate(data)]
+    return [
+        (
+            " " * (num_char_before_dot - before_sizes[i])
+            + item
+            + " " * (num_char_after_dot - after_sizes[i])
+        )
+        for i, item in enumerate(data)
+    ]
 
 
-def tablify(string, align_char='.', delimiter=None):
+def tablify(string, align_char=".", delimiter=None):
     lines = string.splitlines()
 
     if delimiter is None:
         delimiter = _guess_delimiter(lines)
 
     # split and strip
-    data = [
-        [item.strip() for item in line.split(delimiter)]
-        for line in lines
-        ]
+    data = [[item.strip() for item in line.split(delimiter)] for line in lines]
 
     max_num_cols = max([len(row) for row in data])
 
     # extend short rows with ''
     for i, row in enumerate(data):
-        data[i].extend([''] * (max_num_cols - len(row)))
+        data[i].extend([""] * (max_num_cols - len(row)))
 
     # transpose <https://stackoverflow.com/a/6473724/353337>
     cols = list(map(list, zip(*data)))
@@ -72,9 +72,9 @@ def tablify(string, align_char='.', delimiter=None):
     # transpose back
     data = list(map(list, zip(*cols)))
 
-    sep = ' {} '.format(delimiter) if delimiter else ' '
+    sep = " {} ".format(delimiter) if delimiter else " "
 
     # Only strip trailing whitespace if the delimiter is None.
     strp = str.rstrip if delimiter is None else str.strip
 
-    return '\n'.join([strp(sep.join(row)) for row in data])
+    return "\n".join([strp(sep.join(row)) for row in data])

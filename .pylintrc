@@ -1,6 +1,0 @@
-[MESSAGES CONTROL]
-
-disable=
-    invalid-name,
-    len-as-condition,
-    missing-docstring,
