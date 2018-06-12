@@ -7,7 +7,7 @@ Pretty-prints your tables.
 [![Codacy grade](https://img.shields.io/codacy/grade/b23fbc2af9884315bd7d6275aa2629b6.svg)](https://app.codacy.com/app/nschloe/tablify/dashboard)
 [![awesome](https://img.shields.io/badge/awesome-yes-brightgreen.svg)](https://github.com/nschloe/tablify)
 [![PyPi Version](https://img.shields.io/pypi/v/tablify.svg)](https://pypi.python.org/pypi/tablify)
-[![GitHub stars](https://img.shields.io/github/stars/nschloe/tablify.svg?style=social&label=Stars)](https://github.com/nschloe/tablify)
+[![GitHub stars](https://img.shields.io/github/stars/nschloe/tablify.svg?logo=github&label=Stars)](https://github.com/nschloe/tablify)
 
 tablify converts your input file
 ```
