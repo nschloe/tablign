@@ -12,6 +12,15 @@ from .__about__ import (
 
 from .main import tablify
 
+__all__ = [
+    "__copyright__",
+    "__version__",
+    "__author__",
+    "__author_email__",
+    "__website__",
+    "tablify",
+]
+
 try:
     import pipdate
 except ImportError:
