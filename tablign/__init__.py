@@ -10,6 +10,7 @@ from .__about__ import (
     __website__,
 )
 
+from . import cli
 from .main import tablign
 
 __all__ = [
@@ -18,6 +19,7 @@ __all__ = [
     "__author__",
     "__author_email__",
     "__website__",
+    "cli",
     "tablign",
 ]
 

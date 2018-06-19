@@ -4,6 +4,7 @@
 import argparse
 import sys
 
+from .__about__ import __version__
 from .main import tablign
 
 
@@ -38,7 +39,7 @@ def _get_parser():
     )
 
     version_text = "tablign {}, Python {}.{}.{}".format(
-        tablign.__version__,
+        __version__,
         sys.version_info.major,
         sys.version_info.minor,
         sys.version_info.micro,
