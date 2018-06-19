@@ -10,7 +10,8 @@ from .__about__ import (
     __website__,
 )
 
-from .main import tablify
+from . import cli
+from .main import tablign
 
 __all__ = [
     "__copyright__",
@@ -18,7 +19,8 @@ __all__ = [
     "__author__",
     "__author_email__",
     "__website__",
-    "tablify",
+    "cli",
+    "tablign",
 ]
 
 try:

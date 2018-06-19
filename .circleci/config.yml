@@ -12,10 +12,10 @@ jobs:
       - checkout
       - run: pip3 install .
       # format and lint
-      - run: LC_ALL=C.UTF-8 black setup.py tablify/ test/*.py
-      - run: flake8 setup.py tablify/ test/*.py
+      - run: LC_ALL=C.UTF-8 black setup.py tablign/ test/*.py
+      - run: flake8 setup.py tablign/ test/*.py
       # The tests
-      - run: cd test/ && MPLBACKEND=Agg pytest --cov tablify
+      - run: cd test/ && MPLBACKEND=Agg pytest --cov tablign
       # submit to codecov
       - run: apt-get install -y curl
       - run: bash <(curl -s https://codecov.io/bash)

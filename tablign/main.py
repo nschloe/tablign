@@ -43,7 +43,7 @@ def _align(data, align_char):
     ]
 
 
-def tablify(string, align_char=".", delimiter=None):
+def tablign(string, align_char=".", delimiter=None):
     lines = string.splitlines()
 
     if delimiter is None:
