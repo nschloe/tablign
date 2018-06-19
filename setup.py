@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 # https://packaging.python.org/single_source_version/
 base_dir = os.path.abspath(os.path.dirname(__file__))
 about = {}
-with open(os.path.join(base_dir, "tablify", "__about__.py"), "rb") as f:
+with open(os.path.join(base_dir, "tablign", "__about__.py"), "rb") as f:
     exec(f.read(), about)
 
 
@@ -17,10 +17,10 @@ def read(fname):
 
 
 setup(
-    name="tablify",
+    name="tablign",
     version=about["__version__"],
     packages=find_packages(),
-    url="https://github.com/nschloe/tablify",
+    url="https://github.com/nschloe/tablign",
     author=about["__author__"],
     author_email=about["__author_email__"],
     install_requires=["pipdate"],

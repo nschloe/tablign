@@ -2,13 +2,13 @@
 #
 import pytest
 
-import tablify
+import tablign
 
 
 def test_plain():
     data = """A  1.34  -214.1\nCCCC 55.534 1131.1"""
     ref = """A     1.34  -214.1\nCCCC 55.534 1131.1"""
-    assert tablify.tablify(data) == ref
+    assert tablign.tablign(data) == ref
     return
 
 
@@ -23,28 +23,28 @@ CCCC {} 55.534 {} 1131.1""".format(
         *(4 * sep_char)
     )
 
-    assert tablify.tablify(data) == ref
+    assert tablign.tablign(data) == ref
     return
 
 
 def test_empty_cell():
     data = """| A   |  B |\n||C|"""
     ref = """| A | B |\n|   | C |"""
-    assert tablify.tablify(data) == ref
+    assert tablign.tablign(data) == ref
     return
 
 
 def test_different_column_lengths():
     data = """| A   |  B |\n|C|"""
     ref = """| A | B |\n| C |   |"""
-    assert tablify.tablify(data) == ref
+    assert tablign.tablign(data) == ref
     return
 
 
 def test_csv():
     data = """A,B,\nCCCC,,"""
     ref = """A    , B ,\nCCCC ,   ,"""
-    assert tablify.tablify(data) == ref
+    assert tablign.tablign(data) == ref
     return
 
 

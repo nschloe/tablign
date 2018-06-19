@@ -4,14 +4,14 @@
 import argparse
 import sys
 
-import tablify
+import tablign
 
 
 def _main():
     args = _parse_options()
     data = args.infile.read()
 
-    data = tablify.tablify(data)
+    data = tablign.tablign(data)
     print(data)
     return
 
@@ -35,8 +35,8 @@ def _parse_options():
         help='output table file (default: stdout)'
         )
 
-    version_text = 'tablify {}, Python {}.{}.{}'.format(
-        tablify.__version__,
+    version_text = 'tablign {}, Python {}.{}.{}'.format(
+        tablign.__version__,
         sys.version_info.major, sys.version_info.minor, sys.version_info.micro
         )
     parser.add_argument(
