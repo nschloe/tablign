@@ -42,4 +42,5 @@ setup(
         "Topic :: Text Processing :: Markup :: LaTeX",
         "Topic :: Utilities",
     ],
+    entry_points={"console_scripts": ["tablign = tablign.cli:main"]},
 )
