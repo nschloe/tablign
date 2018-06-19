@@ -1,6 +1,6 @@
 # tablign
 
-Pretty-prints your tables.
+Aligns columns in your ASCII tables.
 
 [![CircleCI](https://img.shields.io/circleci/project/github/nschloe/tablign/master.svg)](https://circleci.com/gh/nschloe/tablign/tree/master)
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/tablign.svg)](https://codecov.io/gh/nschloe/tablign)
@@ -12,7 +12,7 @@ Pretty-prints your tables.
 
 tablign converts your input file
 ```
-| A | 1.34|-214.1
+| A | 1.34|-214.1|
 |CCCC | 55.534|   1131.1|
 ```
 into
