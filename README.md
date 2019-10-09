@@ -8,7 +8,7 @@ Aligns columns in your ASCII tables.
 [![awesome](https://img.shields.io/badge/awesome-yes-brightgreen.svg?style=flat-square)](https://github.com/nschloe/tablign)
 [![PyPi Version](https://img.shields.io/pypi/v/tablign.svg?style=flat-square)](https://pypi.python.org/pypi/tablign)
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/tablign.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/tablign)
-[![PyPi downloads](https://img.shields.io/pypi/dm/meshio.svg?style=flat-square)](https://pypistats.org/packages/meshio)
+[![PyPi downloads](https://img.shields.io/pypi/dm/tablign.svg?style=flat-square)](https://pypistats.org/packages/tablign)
 
 tablign converts your input file
 ```
