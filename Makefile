@@ -25,5 +25,12 @@ clean:
 	@rm -rf *.egg-info/ build/ dist/ MANIFEST
 
 lint:
-	black --check setup.py tablign/ test/*.py
-	flake8 setup.py tablign/ test/*.py
+	black --check .
+	flake8 .
+
+black:
+	black .
+
+format:
+	isort -rc .
+	black .
