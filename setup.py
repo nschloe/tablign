@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-#
-import codecs
 import os
 
 from setuptools import setup, find_packages
@@ -11,11 +8,6 @@ about = {}
 with open(os.path.join(base_dir, "tablign", "__about__.py"), "rb") as f:
     exec(f.read(), about)
 
-
-def read(fname):
-    return codecs.open(os.path.join(base_dir, fname), encoding="utf-8").read()
-
-
 setup(
     name="tablign",
     version=about["__version__"],
@@ -23,9 +15,9 @@ setup(
     url="https://github.com/nschloe/tablign",
     author=about["__author__"],
     author_email=about["__author_email__"],
-    install_requires=["pipdate >=0.3.0, <0.4.0"],
+    install_requires=[],
     description="Align columns in ASCII tables",
-    long_description=read("README.md"),
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     license=about["__license__"],
     classifiers=[
@@ -33,7 +25,6 @@ setup(
         about["__status__"],
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
         "Topic :: Text Editors :: Text Processing",
         "Topic :: Text Processing",

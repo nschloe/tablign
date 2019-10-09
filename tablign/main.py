@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-#
-
-
 def _one_align_char(a, char):
     return all([item.count(char) == 1 for item in a])
 
