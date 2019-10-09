@@ -20,13 +20,12 @@ into
 | A    |  1.34  | -214.1 |
 | CCCC | 55.534 | 1131.1 |
 ```
-Column widths are unified across the table, decimal dots are aligned, and
-tablign tries to be smart about column separators. Works for CSV, LaTeX,
-Markdown etc.
+Column widths are unified across the table, decimal dots are aligned, and tablign tries
+to be smart about column separators. Works for CSV, LaTeX, Markdown etc.
 
 ### Usage from vim
 
-Simply mark the table, and type
+Simply mark the table (shift-V), and type
 ```
 :'<,'>:!tablign
 ```
@@ -35,9 +34,10 @@ Simply mark the table, and type
 
 ### Installation
 
-tablign is [available from the Python Package Index](https://pypi.python.org/pypi/tablign/), so with
+tablign is [available from the Python Package
+Index](https://pypi.python.org/pypi/tablign/), so with
 ```
-pip install -U tablign
+pip3 install -U tablign
 ```
 you can install/upgrade.
 
