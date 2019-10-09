@@ -8,7 +8,8 @@ upload: setup.py
 	# Make sure we're on the master branch
 	@if [ "$(shell git rev-parse --abbrev-ref HEAD)" != "master" ]; then exit 1; fi
 	rm -f dist/*
-	python3 setup.py bdist_wheel --universal
+	python3 setup.py sdist
+	python3 setup.py bdist_wheel
 	twine upload dist/*
 
 tag:
@@ -24,5 +25,12 @@ clean:
 	@rm -rf *.egg-info/ build/ dist/ MANIFEST
 
 lint:
-	black --check setup.py tablign/ test/*.py
-	flake8 setup.py tablign/ test/*.py
+	black --check .
+	flake8 .
+
+black:
+	black .
+
+format:
+	isort -rc .
+	black .

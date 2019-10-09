@@ -1,21 +1,33 @@
 version: 2
 
 jobs:
+  lint:
+    docker:
+      - image: circleci/python:3
+    steps:
+      - checkout
+      - run: pip3 install --user black flake8
+      - run: black --check .
+      - run: flake8 .
   build:
     working_directory: ~/work
     docker:
-      - image: ubuntu:18.04
+      - image: circleci/python:3
     steps:
-      - run: apt-get update
-      - run: apt-get install -y git python3-pip
-      - run: pip3 install -U pytest pytest-cov flake8 black
+      - run: pip3 install --user pytest pytest-cov
       - checkout
-      - run: pip3 install .
-      # format and lint
-      - run: LC_ALL=C.UTF-8 black setup.py tablign/ test/*.py
-      - run: flake8 setup.py tablign/ test/*.py
+      - run: pip3 install --user .
       # The tests
-      - run: cd test/ && MPLBACKEND=Agg pytest --cov tablign
+      - run:
+          command: pytest --cov tablign
+          working_directory: test/
       # submit to codecov
-      - run: apt-get install -y curl
       - run: bash <(curl -s https://codecov.io/bash)
+
+
+workflows:
+  version: 2
+  lint_and_build:
+    jobs:
+      - lint
+      - build
