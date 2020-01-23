@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 import tempfile
 
 import tablign
@@ -17,4 +15,3 @@ def test_cli():
     ref = """A     1.34  -214.1\nCCCC 55.534 1131.1"""
     with open(outfile, "r") as f:
         assert ref == f.read()
-    return
