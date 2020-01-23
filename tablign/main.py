@@ -68,9 +68,13 @@ def tablign(string, align_char=".", delimiter=None):
     # transpose back
     data = list(map(list, zip(*cols)))
 
-    sep = " {} ".format(delimiter) if delimiter else " "
+    sep = f" {delimiter} " if delimiter else " "
 
-    # Only strip trailing whitespace if the delimiter is None.
-    strp = str.rstrip if delimiter is None else str.strip
+    first_col_empty = all(s == "" for s in cols[0])
+    last_col_empty = all(s == "" for s in cols[-1])
 
-    return "\n".join([strp(sep.join(row)) for row in data])
+    # If the delimiter is None, only strip trailing whitespace
+    lstrp = str.lstrip if first_col_empty and delimiter is not None else lambda x: x
+    rstrp = str.rstrip if last_col_empty and delimiter is not None else lambda x: x
+
+    return "\n".join([rstrp(lstrp(sep.join(row))) for row in data])
