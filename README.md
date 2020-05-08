@@ -37,9 +37,9 @@ Simply mark the table (shift-V), and type
 tablign is [available from the Python Package
 Index](https://pypi.python.org/pypi/tablign/), so with
 ```
-pip3 install -U tablign
+pip install tablign
 ```
-you can install/upgrade.
+you can install.
 
 ### Testing
 
