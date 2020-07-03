@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/nschloe/tablign"><img alt="tablign" src="https://nschloe.github.io/meshio/logo.svg" width="60%"></a>
+  <a href="https://github.com/nschloe/tablign"><img alt="tablign" src="https://nschloe.github.io/tablign/logo.svg" width="60%"></a>
   <p align="center">Aligns columns in your ASCII tables.</p>
 </p>
 
