@@ -1,8 +1,9 @@
-# tablign
+<p align="center">
+  <a href="https://github.com/nschloe/tablign"><img alt="tablign" src="https://nschloe.github.io/meshio/logo.svg" width="60%"></a>
+  <p align="center">Aligns columns in your ASCII tables.</p>
+</p>
 
-Aligns columns in your ASCII tables.
-
-[![CircleCI](https://img.shields.io/circleci/project/github/nschloe/tablign/master.svg?style=flat-square)](https://circleci.com/gh/nschloe/tablign/tree/master)
+[![gh-actions](https://img.shields.io/github/workflow/status/nschloe/tablign/ci?style=flat-square)](https://github.com/nschloe/tablign/actions?query=workflow%3Aci)
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/tablign.svg?style=flat-square)](https://codecov.io/gh/nschloe/tablign)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 [![awesome](https://img.shields.io/badge/awesome-yes-brightgreen.svg?style=flat-square)](https://github.com/nschloe/tablign)
@@ -11,7 +12,11 @@ Aligns columns in your ASCII tables.
 [![GitHub stars](https://img.shields.io/github/stars/nschloe/tablign.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/nschloe/tablign)
 [![PyPi downloads](https://img.shields.io/pypi/dm/tablign.svg?style=flat-square)](https://pypistats.org/packages/tablign)
 
-tablign converts your input file
+With
+```
+tablign in.txt out.txt
+```
+you can convert your input file
 ```
 | A | 1.34|-214.1|
 |CCCC | 55.534|   1131.1|
