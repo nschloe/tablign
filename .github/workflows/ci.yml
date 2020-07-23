@@ -10,8 +10,6 @@ jobs:
       with:
         python-version: "3.x"
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # fetch all history to avoid git-repo-age false positive
     - name: Lint with flake8
       run: |
         pip install flake8
