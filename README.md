@@ -27,7 +27,11 @@ into
 | CCCC | 55.534 | 1131.1 |
 ```
 Column widths are unified across the table, decimal dots are aligned, and tablign tries
-to be smart about column separators. Works for CSV, LaTeX, Markdown etc.
+to be smart about column separators. Works for CSV, LaTeX, Markdown etc. By default,
+`tablign` reads from stdin and writes to stdout, so you can use pipes with tablign, too:
+```
+head -n in.txt | tablign
+```
 
 ### Usage from vim
 
