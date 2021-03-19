@@ -11,9 +11,7 @@ def main(argv=None):
     data = args.infile.read()
 
     out = tablign(data)
-
     args.outfile.write(out)
-    return
 
 
 def _get_parser():
