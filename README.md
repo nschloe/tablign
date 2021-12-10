@@ -12,9 +12,14 @@
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/tablign.svg?style=flat-square)](https://codecov.io/gh/nschloe/tablign)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
-With
+Install with
 
+```sh
+pip install tablign
 ```
+
+
+```sh
 tablign in.txt out.txt
 ```
 
@@ -50,25 +55,10 @@ Simply mark the table (shift-V), and type
 
 ![](https://nschloe.github.io/tablign/tty-capture.gif)
 
-### Installation
 
-tablign is [available from the Python Package
-Index](https://pypi.python.org/pypi/tablign/), so with
+### Alternatives
 
+[GNU's `column` command](https://man7.org/linux/man-pages/man1/column.1.html) is a mighty alternative:
+```sh
+column -t
 ```
-pip install tablign
-```
-
-you can install.
-
-### Testing
-
-To run the tests, simply check out this repository and run
-
-```
-pytest
-```
-
-### License
-
-This software is published under the [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
