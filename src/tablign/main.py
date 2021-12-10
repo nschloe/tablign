@@ -3,7 +3,7 @@ def _one_align_char(a, char):
 
 
 def _max_col_length(a):
-    return max([len(item) for item in a])
+    return max(len(item) for item in a)
 
 
 def _guess_delimiter(lines):
@@ -48,7 +48,7 @@ def tablign(string, align_char=".", delimiter=None):
     # split and strip
     data = [[item.strip() for item in line.split(delimiter)] for line in lines]
 
-    max_num_cols = max([len(row) for row in data])
+    max_num_cols = max(len(row) for row in data)
 
     # extend short rows with ''
     for i, row in enumerate(data):

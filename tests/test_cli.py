@@ -13,5 +13,5 @@ def test_cli():
     tablign.cli.main([infile, outfile])
 
     ref = """A     1.34  -214.1\nCCCC 55.534 1131.1"""
-    with open(outfile, "r") as f:
+    with open(outfile) as f:
         assert ref == f.read()
