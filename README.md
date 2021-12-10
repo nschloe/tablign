@@ -12,23 +12,35 @@
 [![codecov](https://img.shields.io/codecov/c/github/nschloe/tablign.svg?style=flat-square)](https://codecov.io/gh/nschloe/tablign)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
-With
+Install with
+
+```sh
+pip install tablign
 ```
+
+
+```sh
 tablign in.txt out.txt
 ```
+
 you can convert your input file
+
 ```
 | A | 1.34|-214.1|
 |CCCC | 55.534|   1131.1|
 ```
+
 into
+
 ```
 | A    |  1.34  | -214.1 |
 | CCCC | 55.534 | 1131.1 |
 ```
+
 Column widths are unified across the table, decimal dots are aligned, and tablign tries
 to be smart about column separators. Works for CSV, LaTeX, Markdown etc. By default,
 `tablign` reads from stdin and writes to stdout, so you can use pipes with tablign, too:
+
 ```
 head -n in.txt | tablign
 ```
@@ -36,27 +48,19 @@ head -n in.txt | tablign
 ### Usage from vim
 
 Simply mark the table (shift-V), and type
+
 ```
 :'<,'>:!tablign
 ```
 
 ![](https://nschloe.github.io/tablign/tty-capture.gif)
 
-### Installation
 
-tablign is [available from the Python Package
-Index](https://pypi.python.org/pypi/tablign/), so with
-```
-pip install tablign
-```
-you can install.
+### Alternatives
 
-### Testing
-
-To run the tests, simply check out this repository and run
-```
-pytest
+[GNU's `column` command](https://man7.org/linux/man-pages/man1/column.1.html) is a mighty alternative:
+```sh
+column -t
 ```
 
-### License
-This software is published under the [GPLv3 license](https://www.gnu.org/licenses/gpl-3.0.en.html).
+See [here](https://stackoverflow.com/q/1229900/353337) for more alternatives.
