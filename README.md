@@ -62,3 +62,5 @@ Simply mark the table (shift-V), and type
 ```sh
 column -t
 ```
+
+See [here](https://stackoverflow.com/q/1229900/353337) for more alternatives.
