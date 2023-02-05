@@ -18,7 +18,6 @@ Install with
 pip install tablign
 ```
 
-
 ```sh
 tablign in.txt out.txt
 ```
@@ -55,10 +54,10 @@ Simply mark the table (shift-V), and type
 
 ![](https://nschloe.github.io/tablign/tty-capture.gif)
 
-
 ### Alternatives
 
 [GNU's `column` command](https://man7.org/linux/man-pages/man1/column.1.html) is a mighty alternative:
+
 ```sh
 column -t
 ```

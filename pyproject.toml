@@ -37,5 +37,14 @@ Issues = "https://github.com/nschloe/tablign/issues"
 [tool.setuptools.dynamic]
 version = {attr = "tablign.__about__.__version__"}
 
-[tool.isort]
-profile = "black"
+[project.scripts]
+tablign = "tablign:cli.main"
+
+[tool.ruff]
+src = ["src", "tests"]
+line-length = 88
+select = ["ALL"]
+ignore = [
+  "ANN", "D", "INP001", "S101", "T201"
+]
+target-version = "py37"
