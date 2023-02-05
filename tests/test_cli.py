@@ -1,17 +1,20 @@
 import tempfile
+from pathlib import Path
 
 import tablign
 
 
 def test_cli():
-    infile = tempfile.NamedTemporaryFile().name
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        infile = tmpdir / "input.txt"
 
-    with open(infile, "w") as f:
-        f.write("""A  1.34  -214.1\nCCCC 55.534 1131.1""")
+        with infile.open("w") as f:
+            f.write("""A  1.34  -214.1\nCCCC 55.534 1131.1""")
 
-    outfile = tempfile.NamedTemporaryFile().name
-    tablign.cli.main([infile, outfile])
+        outfile = tmpdir / "output.txt"
+        tablign.cli.main([str(infile), str(outfile)])
 
-    ref = """A     1.34  -214.1\nCCCC 55.534 1131.1"""
-    with open(outfile) as f:
-        assert ref == f.read()
+        ref = """A     1.34  -214.1\nCCCC 55.534 1131.1"""
+        with outfile.open() as f:
+            assert ref == f.read()

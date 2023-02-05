@@ -13,11 +13,11 @@ def test_plain():
 def test_column_seps(sep_char):
     data = """A  {} 1.34    {} -214.1
     CCCC {}        55.534 {} 1131.1""".format(
-        *(4 * sep_char)
+        *(4 * sep_char),
     )
     ref = """A    {}  1.34  {} -214.1
 CCCC {} 55.534 {} 1131.1""".format(
-        *(4 * sep_char)
+        *(4 * sep_char),
     )
     assert tablign.tablign(data) == ref
 
